@@ -1,6 +1,6 @@
   #include "holberton.h"
 
-int main ()
+int main(int argc __attribute__((unused)), char **argv, char **environment)
 {
     size_t len_buffer = 0;
 

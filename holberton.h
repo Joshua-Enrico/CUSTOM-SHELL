@@ -28,6 +28,10 @@ void _env(vars_t *vars);
 void new_setenv(vars_t *vars);
 void new_unsetenv(vars_t *vars);
 
+
+/** functions related to tokenizer **/
+char **tokenize(char *buffer, char *delimiter);
+
 /**** Estructura con las posibles variables que vamos a usar ****/
 /**
  * struct variables - variables
