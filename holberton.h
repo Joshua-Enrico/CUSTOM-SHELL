@@ -17,6 +17,9 @@ int _strcmpr(char *strcmp1, char *strcmp2);
 char *_strcat(char *strc1, char *strc2);
 ssize_t _puts(char *str);
 int str_len(char *str);
+void print_str(char *str, int new_line);
+int _write_char(char c);
+int print_number(int n);
 
 /*** BUILTINGS PROTOTYPES ****/
 void *check_for_builtins(vars_t *vars);
