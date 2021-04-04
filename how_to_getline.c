@@ -1,4 +1,5 @@
 #include "holberton.h"
+#define SHELLNAME "Mishell $ "
 
 int main(__attribute__((unused)) int ac, __attribute__((unused)) char **av)
 {
@@ -9,7 +10,7 @@ int main(__attribute__((unused)) int ac, __attribute__((unused)) char **av)
         do {
                 line = NULL;
                 len_buffer = 0;
-                write(STDOUT_FILENO, "$ ", str_len("$ "));
+                write(STDOUT_FILENO, SHELLNAME, str_len(SHELLNAME));
                 read_len = getline(&line, &len_buffer, stdin);
         } while (1);
 
