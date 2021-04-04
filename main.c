@@ -8,9 +8,9 @@ int main ()
 
     _puts("$ ");
 
-    while (1)
+    while (getline(&(vars.buffer), &len_buffer, stdin) != -1)
     {
-        getline(&(vars.buffer), &len_buffer, stdin);
+        
 
     }
 }
