@@ -28,11 +28,12 @@ void new_unsetenv(vars_t *vars);
 /**
  * struct variables - variables
  * @av: command line arguments
-
+  * @buffer: buffer of command
  */
 typedef struct variables
 {
 	char **av;
+	char *buffer;
 } vars_t;
 
 /**
