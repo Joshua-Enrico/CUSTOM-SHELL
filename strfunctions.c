@@ -89,3 +89,24 @@ char *_strcat(char *strc1, char *strc2)
 	return (newstring);
 }
 
+
+/*** WRITES STRING TO STDOUT ***/
+/**
+ * _puts - writes a string to standard output
+ * @str: string to write
+ *
+ * Return: number of chars printed or -1 on failure
+ */
+ssize_t _puts(char *str)
+{
+	ssize_t i, len;
+	for (i = 0; str[i]; i++)
+		;
+	len = write(1, str, i);
+	if (len != i)
+	{
+		perror("Fatal Error");
+		return (-1);
+	}
+	return (len);
+}

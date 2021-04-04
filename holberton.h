@@ -15,6 +15,7 @@
 char *_strdup(char *strtodup);
 int _strcmpr(char *strcmp1, char *strcmp2);
 char *_strcat(char *strc1, char *strc2);
+ssize_t _puts(char *str);
 
 
 #endif /* _SHELL_HOLBERTON_ */
