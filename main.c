@@ -13,5 +13,5 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
    {
      vars.array_tokens = tokenizer(vars.buffer, " ");
 
-      check_for_builtins(&vars);
+
    }

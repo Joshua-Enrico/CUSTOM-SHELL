@@ -50,7 +50,7 @@ char *new_strtok(char *str, const char *delim)
 	next_token = token_start;
 	for (i = 0; next_token[i] != '\0'; i++)
 	{
-		if (check_match(next_token[i], delim) == 1)
+		if (check_if_match(next_token[i], delim) == 1)
 			break;
 	}
 	if (next_token[i] == '\0')
