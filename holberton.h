@@ -35,13 +35,14 @@ char **tokenize(char *buffer, char *delimiter);
 /**** Estructura con las posibles variables que vamos a usar ****/
 /**
  * struct variables - variables
- * @av: command line arguments
+ * @array_tokens: array of tokens(arguments)
   * @buffer: buffer of command
  */
 typedef struct variables
 {
-	char **av;
+	char **array_tokens;
 	char *buffer;
+	
 } vars_t;
 
 /**
