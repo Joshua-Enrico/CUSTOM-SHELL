@@ -21,7 +21,7 @@ void *check_for_builtins(vars_t *vars)
 	for (i = 0; check[i].f != NULL; i++)
 	{
         /** vars->av esta accediendo a los argumentos posiblemente se va a modificar*/
-		if (_strcmpr(vars->av[0], check[i].name) == 0)
+		if (_strcmpr(vars->array_tokens[0], check[i].name) == 0)
 			break;
 	}
 	if (check[i].f != NULL)
@@ -31,7 +31,9 @@ void *check_for_builtins(vars_t *vars)
 
 
 void new_exit(vars_t *vars)
-{}
+{
+	INT_MAX;
+}
 void _env(vars_t *vars)
 {}
 void new_setenv(vars_t *vars)
