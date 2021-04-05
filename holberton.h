@@ -30,7 +30,10 @@ void new_unsetenv(vars_t *vars);
 
 
 /** functions related to tokenizer **/
-char **tokenize(char *buffer, char *delimiter);
+char **tokenizer(char *buffer, char *delimiter);
+unsigned int check_if_match(char c, const char *str);
+char **_realloc(char **ptr, size_t *size);
+char *new_strtok(char *str, const char *delim);
 
 /**** Estructura con las posibles variables que vamos a usar ****/
 /**
