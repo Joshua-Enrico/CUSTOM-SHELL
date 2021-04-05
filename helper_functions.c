@@ -1,10 +1,9 @@
 #include "holberton.h"
 
 /**
- * _puts_error
- * 
- * 
- * 
+ * _puts_error - print a string to sdandart error
+ * @str: string to print.
+ * Return: void
  */
 
 void _puts_error(char *str)
