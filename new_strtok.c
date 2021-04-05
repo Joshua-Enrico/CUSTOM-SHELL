@@ -38,7 +38,7 @@ char *new_strtok(char *str, const char *delim)
 		return (NULL);
 	for (i = 0; next_token[i] != '\0'; i++)
 	{
-		if (check_match(next_token[i], delim) == 0)
+		if (check_if_match(next_token[i], delim) == 0)
 			break;
 	}
 	if (next_token[i] == '\0' || next_token[i] == '#')
