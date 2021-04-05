@@ -5,7 +5,7 @@ int main(int argc __attribute__((unused)), char **argv __attribute__((unused)), 
   size_t len_buffer = 0;
  
 
-  vars_t vars = {NULL, NULL};
+  vars_t vars = {NULL, NULL,0};
 
   puts("$ ");
 

@@ -17,11 +17,13 @@
  * struct variables - variables
  * @array_tokens: array of tokens(arguments)
   * @buffer: buffer of command
+  * @status: to handle exit status
  */
 typedef struct variables
 {
 	char **array_tokens;
 	char *buffer;
+	int status;
 	
 } vars_t;
 

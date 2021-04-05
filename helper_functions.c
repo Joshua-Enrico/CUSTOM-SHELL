@@ -1,13 +1,13 @@
 #include "holberton.h"
 
 /**
- * 
+ * _puts_error
  * 
  * 
  * 
  */
 
-void _puts_error (char *str)
+void _puts_error(char *str)
 {
     long num, len;
 
