@@ -29,6 +29,7 @@ typedef struct variables
 	int status;
 	char **argv;
 	int counter;
+	char **env;
 	
 } vars_t;
 
@@ -78,4 +79,10 @@ char *integer_converter(unsigned int count);
 
 /** function to help exit builting*/
 int _atoi(char *str);
+
+/** functions de help env builting*/
+/*this to get enviroment*/
+char **make_enviroment(char **env);
+
+
 #endif /* _SHELL_HOLBERTON_ */
