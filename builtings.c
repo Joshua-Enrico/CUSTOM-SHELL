@@ -5,7 +5,7 @@
  * @vars: variables
  * Return: pointer to the function or NULL
  */
-void *check_for_builtins(vars_t *vars)
+void (*check_for_builtins(vars_t *vars))(vars_t *vars)
 {
 	unsigned int i;
 	builtins_t check[] = {
@@ -30,16 +30,18 @@ void new_exit(vars_t *vars)
 {
 	int status;
 	if (_strcmpr(vars->array_tokens[0], "exit") == 0 && vars->array_tokens[1] != NULL)
-		;
+		
 	{
+		/* con esta funcion nos aseguramos que el numero ingresad sea valido*/
 		status = _atoi(vars->array_tokens[1]);
+		/* si no lo es , manejaremos el caso de error personalizado imprimiendo un error con su mensaje*/
 		if (status == -1)
 		{
 			vars->status = 2;
-			/** aqui necesitamos una funcion para imprimir un mensaje de error */
-			/** aqui una funcion para imprimir error hacia stderr error*/
-			/* seguramente necesitamosun salto de linea , a probar*/
-			/* uso de la funcion free cuando de necesita */
+			/*imprimira un mensaje de error */
+			prints_error_msg(vars, ": Illegal number: ");
+			_puts_error(vars->array_tokens[1]);
+			_puts_error("\n");
 			return;
 		}
 		vars->status = status;
@@ -50,10 +52,13 @@ void new_exit(vars_t *vars)
 }
 void _env(vars_t *vars)
 {
+	UNUSED(vars);
 }
 void new_setenv(vars_t *vars)
 {
+	UNUSED(vars);
 }
 void new_unsetenv(vars_t *vars)
 {
+	UNUSED(vars);
 }
