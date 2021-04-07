@@ -28,7 +28,9 @@ void (*check_for_builtins(vars_t *vars))(vars_t *vars)
 
 void new_exit(vars_t *vars)
 {
+	
 	int status;
+	
 	if (_strcmpr(vars->array_tokens[0], "exit") == 0 && vars->array_tokens[1] != NULL)
 		
 	{
