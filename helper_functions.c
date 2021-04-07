@@ -8,16 +8,16 @@
 
 void _puts_error(char *str)
 {
-    long num, len;
+	long num, len;
 
-    num = _strlen(str);
-    len = write(STDERR_FILENO, str, num);
-    if (len != num)
+	num = _strlen(str);
+	len = write(STDERR_FILENO, str, num);
+	if (len != num)
 
-    {
-        perror("fatal error");
-        exit(0);
-    }
+	{
+		perror("fatal error");
+		exit(1);
+	}
 }
 
 /**** imprime mensage de error con ciertor parametros ****/
@@ -31,22 +31,23 @@ void _puts_error(char *str)
 
 void prints_error_msg(vars_t *vars, char *msg)
 {
-    char *count;
-    _puts_error(vars->argv[0]);
-    _puts_error(": ");
+	char *count;
+	_puts_error(vars->argv[0]);
+	_puts_error(": ");
 
-    /*aqui estoy creando una funcion para poder usar
-    funcion "_put_error" ya que count es un entero*/
-    count = integer_converter(vars->counter);
-    _puts_error(count);
-    _puts_error(": ");
-    _puts_error(vars->array_tokens[0]);
-    if (msg)
-    {
-        _puts_error(msg);
-    }
-    else
-        perror("");
+	/*aqui estoy creando una funcion para poder usar
+	funcion "_put_error" ya que count es un entero*/
+	count = integer_converter(vars->counter);
+	_puts_error(count);
+	free(count);
+	_puts_error(": ");
+	_puts_error(vars->array_tokens[0]);
+	if (msg)
+	{
+		_puts_error(msg);
+	}
+	else
+		perror("");
 }
 
 /**
@@ -58,30 +59,30 @@ void prints_error_msg(vars_t *vars, char *msg)
 
 char *integer_converter(unsigned int count)
 {
-    char *numstr;
-    unsigned int tmp, digits;
+	char *numstr;
+	unsigned int tmp, digits;
 
-    tmp = count;
+	tmp = count;
 
-    for (digits = 0; tmp != 0; digits++)
-        tmp /= 10;
+	for (digits = 0; tmp != 0; digits++)
+		tmp /= 10;
 
-    numstr = malloc(sizeof(char) * (digits + 1));
+	numstr = malloc(sizeof(char) * (digits + 1));
 
-    if (numstr == NULL)
-    {
-        perror("Fatal Error");
-        exit(100);
-    }
+	if (numstr == NULL)
+	{
+		perror("Fatal Error");
+		exit(100);
+	}
 
-    numstr[digits] = '\0';
+	numstr[digits] = '\0';
 
-    for (--digits; count; --digits)
-    {
-        numstr[digits] = (count % 10) + '0';
-        count /= 10;
-    }
-    return (numstr);
+	for (--digits; count; --digits)
+	{
+		numstr[digits] = (count % 10) + '0';
+		count /= 10;
+	}
+	return (numstr);
 }
 
 /**
