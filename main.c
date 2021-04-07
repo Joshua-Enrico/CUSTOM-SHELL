@@ -1,26 +1,30 @@
 #include "holberton.h"
 
-int main(int argc __attribute__((unused)), char **argv __attribute__((unused)), char **environment __attribute__((unused)))
+int main(int argc __attribute__((unused)), char **argv, char **environment __attribute__((unused)))
 {
-  size_t len_buffer = 0;
+	size_t len_buffer = 0;
  
 
-  vars_t vars = {NULL, NULL,0};
+	vars_t vars = {NULL, NULL, 0, NULL, 0};
 
-  puts("$ ");
-
-  while (getline(&(vars.buffer), &len_buffer, stdin) != -1)
-  {
-    vars.array_tokens = tokenizer(vars.buffer, " ");
+	vars.argv = argv;
 
 
+	_puts("$ ");
 
-    if (check_for_builtins(&vars) == NULL);
-    {
-    check_for_path(&vars);
-    }
-  }
+	while (getline(&(vars.buffer), &len_buffer, stdin) != -1)
+	{
+		vars.array_tokens = tokenizer(vars.buffer, " ");
 
-   return (0);
-    exit(100);
+
+
+		if (check_for_builtins(&vars) == NULL)
+		{
+
+		}
+		_puts("$ ");
+	}
+
+
+		exit(vars.status);
 }
