@@ -63,4 +63,7 @@ unsigned int check_if_match(char c, const char *str);
 char **_realloc(char **ptr, size_t *size);
 char *new_strtok(char *str, const char *delim);
 
+/** functions related ask external shell, ask the path**/
+void check_for_path(vars_t *vars);
+
 #endif /* _SHELL_HOLBERTON_ */
