@@ -143,4 +143,5 @@ void new_help9(vars_t *vars)
         free(s);
         fd = close(fd);
     }
+    else (new_help10(vars));
 }

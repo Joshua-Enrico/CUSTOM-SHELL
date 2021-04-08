@@ -97,4 +97,5 @@ void new_help6(vars_t *vars);
 void new_help7(vars_t *vars);
 void new_help8(vars_t *vars);
 void new_help9(vars_t *vars);
+void new_help10(vars_t *vars);
 #endif /* _SHELL_HOLBERTON_ */

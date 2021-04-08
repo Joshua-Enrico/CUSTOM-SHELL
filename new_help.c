@@ -5,8 +5,31 @@ void new_help(vars_t *vars)
 	char *file;
 	int fd, r;
 	char *s;
+	if (vars->array_tokens[1] == NULL)
+	{
+		file = "helpfiles/help";
+		fd = open(file, O_RDWR);
 
-	if (_strcmpr(vars->array_tokens[1], "help") == 0)
+		s = malloc(300);
+		if (s == NULL)
+		{
+		}
+		while ((r = read(fd, s, 300)) > 0)
+		{
+			r = write(1, s, r);
+			_puts_error("\n");
+			if (r == -1)
+			{
+			}
+		}
+		free(s);
+		fd = close(fd);
+		return;
+	}
+
+
+
+	else if (_strcmpr(vars->array_tokens[1], "help") == 0)
 	{
 		file = "helpfiles/help_help";
 		fd = open(file, O_RDWR);
@@ -118,7 +141,7 @@ void new_help3(vars_t *vars)
 
 void new_help4(vars_t *vars)
 {
-		char *file;
+	char *file;
 	int fd, r;
 	char *s;
 
@@ -142,5 +165,5 @@ void new_help4(vars_t *vars)
 		free(s);
 		fd = close(fd);
 	}
-	 new_help5(vars);
+	new_help5(vars);
 }
