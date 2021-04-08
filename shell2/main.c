@@ -14,7 +14,7 @@ static void sig_handler(int uuv)
 
 
 
-int main(int argc __attribute__((unused)), char **argv, char **environment __attribute__((unused)))
+int main(int argc __attribute__((unused)), char **argv, char **environment )
 {
 	size_t len_buffer = 0;
 

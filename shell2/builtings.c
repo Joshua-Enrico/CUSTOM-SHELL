@@ -62,7 +62,6 @@ void _env(vars_t *vars)
 	}
 	vars->status = 0;
 }
-
 void new_setenv(vars_t *vars)
 {
 	UNUSED(vars);
