@@ -11,6 +11,7 @@
 #include <sys/wait.h>
 #include <limits.h>
 #include <signal.h>
+#include <fcntl.h>
 
 
 /**** Estructura con las posibles variables que vamos a usar ****/
@@ -30,6 +31,7 @@ typedef struct variables
 	char **argv;
 	int counter;
 	char **env;
+	char **commands;
 	
 } vars_t;
 
@@ -56,11 +58,12 @@ int _write_char(char c);
 int print_number(int n);
 
 /*** BUILTINGS PROTOTYPES ****/
- void (*check_for_builtins(vars_t *vars))(vars_t *vars);
+void (*check_for_builtins(vars_t *vars))(vars_t *vars);
 void new_exit(vars_t *vars);
 void _env(vars_t *vars);
 void new_setenv(vars_t *vars);
 void new_unsetenv(vars_t *vars);
+void new_help(vars_t *vars);
 
 
 /** functions related to tokenizer **/

@@ -56,7 +56,7 @@ int _write_char(char c);
 int print_number(int n);
 
 /*** BUILTINGS PROTOTYPES ****/
- void (*check_for_builtins(vars_t *vars))(vars_t *vars);
+void (*check_for_builtins(vars_t *vars))(vars_t *vars);
 void new_exit(vars_t *vars);
 void _env(vars_t *vars);
 void new_setenv(vars_t *vars);
