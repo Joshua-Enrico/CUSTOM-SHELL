@@ -87,5 +87,14 @@ int _atoi(char *str);
 /*this to get enviroment*/
 char **make_enviroment(char **env);
 
-
+/**New_help functions**/
+void new_help1(vars_t *vars);
+void new_help2(vars_t *vars);
+void new_help3(vars_t *vars);
+void new_help4(vars_t *vars);
+void new_help5(vars_t *vars);
+void new_help6(vars_t *vars);
+void new_help7(vars_t *vars);
+void new_help8(vars_t *vars);
+void new_help9(vars_t *vars);
 #endif /* _SHELL_HOLBERTON_ */
