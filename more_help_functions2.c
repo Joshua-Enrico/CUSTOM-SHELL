@@ -2,17 +2,18 @@
 
 void new_help10(vars_t *vars)
 {
+
+    prints_error_msg(vars, ": no help topics match: ");
+    _puts_error(vars->array_tokens[1]);
     
 
-    int r;
-    char *s;
+    _puts_error(" Try `help help' or `man -k ");
+      _puts_error(vars->array_tokens[1]);
+      _puts_error("' or `info ");
+       _puts_error(vars->array_tokens[1]);
+      _puts_error("'.");
 
-    UNUSED(vars);
 
-    s = "Argument not found";
-
-    r = _strlen(s);
-
-    r = write(1, s, r);
-     _puts_error("\n");
+    _puts_error("\n");
+    return;
 }
