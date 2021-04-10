@@ -64,3 +64,34 @@ char *new_strtok(char *str, const char *delim)
 	}
 	return (token_start);
 }
+
+char *build_path(char *directory, char *command)
+{
+	int i, j;
+	int dir_len;
+	int command_len;
+	int len;
+	char *built;
+
+	if (directory == NULL || command == NULL)
+		return (NULL);
+	dir_len = _strlen(directory) + 1;
+	command_len = _strlen(command) + 1;
+	len = dir_len + command_len;
+
+	built = malloc(sizeof(char) * len);
+	if (built == NULL)
+		return (NULL);
+
+	for (i = 0; i < len; i++)
+	{
+		for (j = 0; directory[j] != '\0'; j++, i++)
+			built[i] = directory[j];
+		built[i] = '/';
+		i++;
+		for (j = 0; command[j] != '\0'; j++, i++)
+			built[i] = command[j];
+	}
+	built[--i] = '\0';
+	return (built);
+}

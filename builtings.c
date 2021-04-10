@@ -81,9 +81,10 @@ void new_setenv(vars_t *vars)
 {
 	char **key;
 	char *var;
-
+	/** si los argumentos de setenv son errones imprimimos mensaje de error**/
 	if (vars->array_tokens[1] == NULL || vars->array_tokens[2] == NULL)
 	{
+
 		prints_error_msg(vars, ": Incorrect number of arguments\n");
 		vars->status = 2;
 		return;

@@ -73,6 +73,11 @@ unsigned int check_if_match(char c, const char *str);
 char **_realloc(char **ptr, size_t *size);
 char *new_strtok(char *str, const char *delim);
 
+/** second tokenizer**/
+char **tokenize(int token_count, char *line, const char *delimiter);
+char **token_interface(char *line, const char *delimiter, int token_count);
+int count_token(char *line, const char *delimiter);
+
 /** functions related ask external shell, ask the path**/
 void check_for_path(vars_t *vars);
 
@@ -105,5 +110,18 @@ void new_setenv(vars_t *vars);
 void add_key(vars_t *vars);
 char *add_value(char *key, char *value);
 char **find_key(char **env, char *key);
+
+
+/** ask the path **/
+void fork_child(vars_t vars);
+char *path_finder(vars_t vars, char *command);
+int find_env_index(vars_t vars, char *str);
+char **tokenize_path(vars_t vars,  int index, char *str);
+char *search_directories(char **path_tokens, char *command);
+char *build_path(char *directory, char *command);
+
+/** More handle error messages**/
+void error_printing(char *av, int count, char *command);
+void exec_error(char *av, int count, char *tmp_command);
 
 #endif /* _SHELL_HOLBERTON_ */
