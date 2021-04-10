@@ -144,11 +144,6 @@ The simple_shell is designed to execute commands in a similar manner to sh, howe
 ## Example of Use
 Run the executable in your terminal after compiling:
 ```
-$ ls #hola
-add_functions.c  enviroment.c              fork_child.c        helpfiles    hsh     memory_allocation.c  more_help_functions2.c  new_help.c    print_functions.c  shell2          tokenizer.c
-builtings.c      env_unsetenv_functions.c  helper_functions.c  holberton.h  main.c  Mishell          more_help_functions.c   new_strtok.c  README.md          strfunctions.c
-$ ls
-add_functions.c  enviroment.c              fork_child.c        helpfiles    hsh     memory_al
 $ ls
 add_functions.c           helpfiles            more_help_functions2.c  shell2
 builtings.c               holberton.h          more_help_functions.c   strfunctions.c
@@ -174,6 +169,8 @@ n (:).
 	Exit Status:
 	Returns 0 if the directory is changed, and if $PWD is set successfully when
 	-P is used; non-zero otherwise.
+$ pwd
+/home/shell_test/shelltestenviroment
 $ 
 ```
 ## Bugs
