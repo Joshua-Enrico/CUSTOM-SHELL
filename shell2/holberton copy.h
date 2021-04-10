@@ -32,7 +32,7 @@ typedef struct variables
 	int counter;
 	char **env;
 	char **commands;
-	
+	char **operator;
 	
 } vars_t;
 
@@ -100,10 +100,9 @@ void new_help_setenv(vars_t *vars);
 void new_help_alias(vars_t *vars);
 void new_help_else(vars_t *vars);
 
-/** FUNCTIONS FOR SETENV AND UNSETENV**/
-void new_setenv(vars_t *vars);
-void add_key(vars_t *vars);
-char *add_value(char *key, char *value);
-char **find_key(char **env, char *key);
+/** second  tokenizer for && operator*/
 
+unsigned int check_match2(char c, char *str, char *sr, int z);
+char *new_strtok2(char *str,  char *delim);
+char **tokenizer2(char *buffer, char *delimiter);
 #endif /* _SHELL_HOLBERTON_ */

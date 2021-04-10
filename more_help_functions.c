@@ -21,6 +21,7 @@ void new_help_history(vars_t *vars)
 			_puts_error("\n");
 			if (r == -1)
 			{
+				
 			}
 		}
 		free(s);
