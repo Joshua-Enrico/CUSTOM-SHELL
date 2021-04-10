@@ -27,17 +27,23 @@ void (*check_for_builtins(vars_t *vars))(vars_t *vars)
 	return (check[i].f);
 }
 
+/**
+ * new_exit - exit program
+ * @vars: variables
+ * Return: void
+ */
 void new_exit(vars_t *vars)
 {
 
 	int status;
-	/**aqui manejamos el tema de argumentos para exit, si lo hay manejaremos el argumento de la siguiente forma*/
-	if (_strcmpr(vars->array_tokens[0], "exit") == 0 && vars->array_tokens[1] != NULL)
+	/**Si exit tiene argumentos, lo manejamos*/
+	if (_strcmpr(vars->array_tokens[0], "exit") ==
+	0 && vars->array_tokens[1] != NULL)
 
 	{
-		/* con esta funcion nos aseguramos que el numero ingresado sea valido*/
+/* con esta funcion nos aseguramos que el numero ingresado sea valido*/
 		status = _atoi(vars->array_tokens[1]);
-		/* si no lo es , manejaremos el caso de error personalizado imprimiendo un error con su mensaje*/
+		/* manejamos caso de error*/
 		if (status == -1)
 		{
 			vars->status = 2;
@@ -63,6 +69,7 @@ void new_exit(vars_t *vars)
 void _env(vars_t *vars)
 {
 	unsigned int i;
+
 	for (i = 0; vars->env[i]; i++)
 	{
 		_puts(vars->env[i]);

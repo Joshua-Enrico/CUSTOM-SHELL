@@ -7,7 +7,7 @@
  *
  * Return: pointer to an array of pointers to the tokens
  */
-char **tokenizer2(char *buffer, char *delimiter)
+char **tokenizer(char *buffer, char *delimiter)
 {
 	char **tokens = NULL;
 	size_t i = 0, mcount = 10;
@@ -44,7 +44,7 @@ char **tokenizer2(char *buffer, char *delimiter)
  *
  * Return: pointer to the next token or NULL
  */
-char *new_strtok2(char *str,  char *delim)
+char *new_strtok(char *str,  char *delim)
 {
     static char *token_start;
     static char *next_token;
@@ -89,7 +89,7 @@ char *new_strtok2(char *str,  char *delim)
     return (token_start);
 }
 
-unsigned int check_match2(char c, char *str, char *sr, int z)
+unsigned int check_match(char c, char *str, char *sr, int z)
 {
     unsigned int i;
 

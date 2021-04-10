@@ -1,5 +1,9 @@
 #include "holberton.h"
-
+/**
+ * new_help_history - help builtin command history
+ * @vars: if command matches a builtin name, text file is sent to stdout
+ * Return: 0 if sucess
+ */
 void new_help_history(vars_t *vars)
 {
 	char *file;
@@ -30,7 +34,11 @@ void new_help_history(vars_t *vars)
 	else
 		new_help_unalias(vars);
 }
-
+/**
+ * new_help_unalias - help builtin command unalias
+ * @vars: if command matches a builtin name, text file is sent to stdout
+ * Return: 0 if sucess
+ */
 void new_help_unalias(vars_t *vars)
 {
 	char *file;
@@ -60,7 +68,11 @@ void new_help_unalias(vars_t *vars)
 	else
 		new_help_unset(vars);
 }
-
+/**
+ * new_help_unset - help builtin command unset
+ * @vars: if command matches a builtin name, text file is sent to stdout
+ * Return: 0 if sucess
+ */
 void new_help_unset(vars_t *vars)
 {
 	char *file;
@@ -90,7 +102,11 @@ void new_help_unset(vars_t *vars)
 	else
 		new_help_unsetenv(vars);
 }
-
+/**
+ * new_help_unsetenv - help builtin command unsetenv
+ * @vars: if command matches a builtin name, text file is sent to stdout
+ * Return: 0 if sucess
+ */
 void new_help_unsetenv(vars_t *vars)
 {
 	char *file;
@@ -120,7 +136,11 @@ void new_help_unsetenv(vars_t *vars)
 	else
 		new_help_setenv(vars);
 }
-
+/**
+ * new_help_setenv - help builtin command setenv
+ * @vars: if command matches a builtin name, text file is sent to stdout
+ * Return: 0 if sucess
+ */
 void new_help_setenv(vars_t *vars)
 {
 	char *file;

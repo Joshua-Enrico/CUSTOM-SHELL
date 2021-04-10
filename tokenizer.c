@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * tokenize - tokenizes a buffer with a delimiter
+ * tokenizer - tokenizes a buffer with a delimiter
  * @buffer: buffer to tokenize
  * @delimiter: delimiter to tokenize along
  *
@@ -37,9 +37,13 @@ char **tokenizer(char *buffer, char *delimiter)
 	return (tokens);
 }
 
-
-
-
+/**
+ * tokenize - tokenizes a buffer with a delimiter just use for for_child
+ * @buffer: buffer to tokenize
+ * @delimiter: delimiter to tokenize along
+ *
+ * Return: pointer to an array of pointers to the tokens
+ */
 char **tokenize(int token_count, char *line, const char *delimiter)
 {
 	int i;
@@ -62,6 +66,12 @@ char **tokenize(int token_count, char *line, const char *delimiter)
 	return (buffer);
 }
 
+/**
+ * token_interface - token interface
+ * 
+ * 
+ **/
+
 char **token_interface(char *line, const char *delimiter, int token_count)
 {
 	vars_t vars;
@@ -82,6 +92,12 @@ char **token_interface(char *line, const char *delimiter, int token_count)
 	return(vars.array_tokens);
 }
 
+/**
+ * count_token - token's count
+ * 
+ * 
+ * 
+ **/
 int count_token(char *line, const char *delimiter)
 {
 	char *str;

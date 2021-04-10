@@ -6,4 +6,4 @@ help: help
     otherwise the list of help topics is printed.
 
     Exit Status:
-    Returns success unless PATTERN is not found or an invalid option is given.
+    Returns success unless PATTERN is     not found or an invalid option is given.
