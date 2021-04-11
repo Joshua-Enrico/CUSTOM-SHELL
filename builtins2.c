@@ -8,9 +8,6 @@
 void new_cd(vars_t *vars)
 {
 	int index, i;
-	
-
-
 
 	if (vars->array_tokens[0] == NULL)
 	{

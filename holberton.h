@@ -13,7 +13,7 @@
 #include <signal.h>
 #include <fcntl.h>
 
-
+/**fixing**/
 /**** Estructura con las posibles variables que vamos a usar ****/
 /**
  * struct variables - variables
