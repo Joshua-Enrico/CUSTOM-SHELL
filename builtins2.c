@@ -7,14 +7,9 @@
  */
 void new_cd(vars_t *vars)
 {
-	int index, i;
+	int index;
 
-	if (vars->array_tokens[0] == NULL)
-	{
-                free(vars->array_tokens);
-                free(vars->buffer);
-		return;
-	}
+
 	if (vars->array_tokens[1] == NULL)
 	{
 		index = find_env_index(*vars, "HOME");
@@ -25,6 +20,5 @@ void new_cd(vars_t *vars)
 
 	else
 		chdir(vars->array_tokens[1]);
-	for (i = 0; vars->array_tokens[i] != NULL; i++)
-		free(vars->array_tokens[i]);
+
 }
