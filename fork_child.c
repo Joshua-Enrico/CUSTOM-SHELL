@@ -28,11 +28,11 @@ void fork_child(vars_t vars)
 			{
 				error_printing(vars.argv[0], vars.counter, tmp_command);
 				print_str(": not found", 0);
-			
-			
+
+
 				for (i = 1; vars.array_tokens[i]; i++)
 					free(vars.array_tokens[i]);
-				
+
 				exit(100);
 			}
                         /* file exist in cwd or has full path */
