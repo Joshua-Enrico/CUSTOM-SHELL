@@ -9,7 +9,7 @@
 void fork_child(vars_t vars)
 {
 	pid_t id;
-	int status, i, check;
+	int status, check;
 	struct stat buf;
 	char *tmp_command, *command;
 
@@ -30,8 +30,7 @@ void fork_child(vars_t vars)
 				print_str(": not found", 0);
 
 
-				for (i = 1; vars.array_tokens[i]; i++)
-					free(vars.array_tokens[i]);
+			
 
 				exit(100);
 			}
