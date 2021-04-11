@@ -66,10 +66,6 @@ void new_setenv(vars_t *vars);
 void new_unsetenv(vars_t *vars);
 void new_help(vars_t *vars);
 void new_cd(vars_t *vars);
-<<<<<<< HEAD
-
-=======
->>>>>>> 3e02f3fed48468aa89668a5c43f276290ff45b3f
 
 /** functions related to tokenizer **/
 char **tokenizer(char *buffer, char *delimiter);

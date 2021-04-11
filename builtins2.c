@@ -8,11 +8,10 @@
 void new_cd(vars_t *vars)
 {
 	int index, i;
-	int token_count;
-	const char *delim = "\n\t ";
+	
 
-	token_count = 0;
-	vars->array_tokens = token_interface(vars->buffer, delim, token_count);
+
+
 	if (vars->array_tokens[0] == NULL)
 	{
                 free(vars->array_tokens);
