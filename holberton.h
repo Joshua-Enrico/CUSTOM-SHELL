@@ -65,6 +65,7 @@ void _env(vars_t *vars);
 void new_setenv(vars_t *vars);
 void new_unsetenv(vars_t *vars);
 void new_help(vars_t *vars);
+void new_cd(vars_t *vars);
 
 
 /** functions related to tokenizer **/

@@ -14,6 +14,7 @@ void (*check_for_builtins(vars_t *vars))(vars_t *vars)
 		{"setenv", new_setenv},
 		{"unsetenv", new_unsetenv},
 		{"help", new_help},
+		{"cd",  new_cd},
 		{NULL, NULL}};
 
 	for (i = 0; check[i].f != NULL; i++)
@@ -38,10 +39,11 @@ void new_exit(vars_t *vars)
 	int status;
 	/**Si exit tiene argumentos, lo manejamos*/
 	if (_strcmpr(vars->array_tokens[0], "exit") ==
-	0 && vars->array_tokens[1] != NULL)
+			0 &&
+		vars->array_tokens[1] != NULL)
 
 	{
-/* con esta funcion nos aseguramos que el numero ingresado sea valido*/
+		/* con esta funcion nos aseguramos que el numero ingresado sea valido*/
 		status = _atoi(vars->array_tokens[1]);
 		/* manejamos caso de error*/
 		if (status == -1)
@@ -116,5 +118,36 @@ void new_setenv(vars_t *vars)
 }
 void new_unsetenv(vars_t *vars)
 {
-	UNUSED(vars);
+	char **key, **newenv;
+	unsigned int i, j;
+	if (vars->array_tokens[1] == NULL)
+	{
+		prints_error_msg(vars, ": Incorrect number of arguments\n");
+		vars->status = 2;
+		return;
+	}
+	key = find_key(vars->env, vars->array_tokens[1]);
+	if (key == NULL)
+	{
+		prints_error_msg(vars, ": No variable to unset");
+		return;
+	}
+	for (i = 0; vars->env[i] != NULL; i++)
+		;
+	newenv = malloc(sizeof(char *) * i);
+	if (newenv == NULL)
+	{
+		prints_error_msg(vars, NULL);
+		vars->status = 127;
+		new_exit(vars);
+	}
+	for (i = 0; vars->env[i] != *key; i++)
+		newenv[i] = vars->env[i];
+	for (j = i + 1; vars->env[j] != NULL; j++, i++)
+		newenv[i] = vars->env[j];
+	newenv[i] = NULL;
+	free(*key);
+	free(vars->env);
+	vars->env = newenv;
+	vars->status = 0;
 }
