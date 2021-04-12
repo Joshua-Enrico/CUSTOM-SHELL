@@ -14,7 +14,7 @@ void new_help_alias(vars_t *vars)
 
 	if (_strcmpr(vars->array_tokens[1], "alias") == 0)
 	{
-		file = "helpfiles/alias";
+		file = "/home/shell_test/shelltestenviroment/helpfiles/alias";
 		fd = open(file, O_RDWR);
 
 		s = malloc(300);

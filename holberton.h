@@ -13,6 +13,24 @@
 #include <signal.h>
 #include <fcntl.h>
 
+
+
+/**
+ * struct history - An structure for each command readed
+ *
+ * @id_h: error code
+ * @comms: Commands
+ * @prev: Previous element
+ * @next: Next element
+ */
+
+typedef struct history
+{
+	char *str;
+    unsigned int len;
+    struct history *next;
+} history_t;
+
 /**fixing**/
 /**** Estructura con las posibles variables que vamos a usar ****/
 /**
@@ -32,8 +50,7 @@ typedef struct variables
 	int counter;
 	char **env;
 	char **commands;
-
-
+	history_t *history;
 } vars_t;
 
 /**
@@ -46,7 +63,6 @@ typedef struct builtins
 	char *name;
 	void (*f)(vars_t *);
 } builtins_t;
-
 
 /******Some String operations and manipulation******/
 char *_strdup(char *strtodup);
@@ -111,12 +127,11 @@ void add_key(vars_t *vars);
 char *add_value(char *key, char *value);
 char **find_key(char **env, char *key);
 
-
 /** ask the path **/
 void fork_child(vars_t vars);
 char *path_finder(vars_t vars, char *command);
 int find_env_index(vars_t vars, char *str);
-char **tokenize_path(vars_t vars,  int index, char *str);
+char **tokenize_path(vars_t vars, int index, char *str);
 char *search_directories(char **path_tokens, char *command);
 char *build_path(char *directory, char *command);
 
@@ -124,4 +139,9 @@ char *build_path(char *directory, char *command);
 void error_printing(char *av, int count, char *command);
 void exec_error(char *av, int count, char *tmp_command);
 
+/**history bild function**/
+void new_history(vars_t *vars);
+void *add_nodeint(history_t **head, char *str);
+void free_listint(history_t *head);
+ssize_t _puts3(char *str);
 #endif /* _SHELL_HOLBERTON_ */

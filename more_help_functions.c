@@ -12,7 +12,7 @@ void new_help_history(vars_t *vars)
 
 	if (_strcmpr(vars->array_tokens[1], "history") == 0)
 	{
-		file = "helpfiles/history";
+		file = "/home/shell_test/shelltestenviroment/helpfiles/history";
 		fd = open(file, O_RDWR);
 
 		s = malloc(300);
@@ -47,7 +47,7 @@ void new_help_unalias(vars_t *vars)
 
 	if (_strcmpr(vars->array_tokens[1], "unalias") == 0)
 	{
-		file = "helpfiles/unalias";
+		file = "/home/shell_test/shelltestenviroment/helpfiles/unalias";
 		fd = open(file, O_RDWR);
 
 		s = malloc(300);
@@ -81,7 +81,7 @@ void new_help_unset(vars_t *vars)
 
 	if (_strcmpr(vars->array_tokens[1], "unset") == 0)
 	{
-		file = "helpfiles/unset";
+		file = "/home/shell_test/shelltestenviroment/helpfiles/unset";
 		fd = open(file, O_RDWR);
 
 		s = malloc(300);
@@ -115,7 +115,7 @@ void new_help_unsetenv(vars_t *vars)
 
 	if (_strcmpr(vars->array_tokens[1], "unsetenv") == 0)
 	{
-		file = "helpfiles/unsetenv";
+		file = "/home/shell_test/shelltestenviroment/helpfiles/unsetenv";
 		fd = open(file, O_RDWR);
 
 		s = malloc(300);
@@ -149,7 +149,7 @@ void new_help_setenv(vars_t *vars)
 
 	if (_strcmpr(vars->array_tokens[1], "setenv") == 0)
 	{
-		file = "helpfiles/setenv";
+		file = "/home/shell_test/shelltestenviroment/helpfiles/setenv";
 		fd = open(file, O_RDWR);
 
 		s = malloc(300);

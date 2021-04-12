@@ -12,7 +12,7 @@ void new_help(vars_t *vars)
 	char *s;
 	if (vars->array_tokens[1] == NULL)
 	{
-		file = "helpfiles/help";
+		file = "/home/shell_test/shelltestenviroment/helpfiles/help";
 		fd = open(file, O_RDWR);
 
 		s = malloc(300);
@@ -34,7 +34,7 @@ void new_help(vars_t *vars)
 
 	else if (_strcmpr(vars->array_tokens[1], "help") == 0)
 	{
-		file = "helpfiles/help_help";
+		file = "/home/shell_test/shelltestenviroment/helpfiles/help_help";
 		fd = open(file, O_RDWR);
 
 		s = malloc(300);
@@ -69,7 +69,7 @@ void new_help_exit(vars_t *vars)
 
 	if (_strcmpr(vars->array_tokens[1], "exit") == 0)
 	{
-		file = "helpfiles/exit";
+		file = "/home/shell_test/shelltestenviroment/helpfiles/exit";
 		fd = open(file, O_RDWR);
 
 		s = malloc(300);
@@ -104,7 +104,7 @@ void new_help_cd(vars_t *vars)
 
 	if (_strcmpr(vars->array_tokens[1], "cd") == 0)
 	{
-		file = "helpfiles/cd";
+		file = "/home/shell_test/shelltestenviroment/helpfiles/cd";
 		fd = open(file, O_RDWR);
 
 		s = malloc(300);
@@ -139,7 +139,7 @@ void new_help_env(vars_t *vars)
 
 	if (_strcmpr(vars->array_tokens[1], "env") == 0)
 	{
-		file = "helpfiles/env";
+		file = "/home/shell_test/shelltestenviroment/helpfiles/env";
 		fd = open(file, O_RDWR);
 
 		s = malloc(300);
