@@ -17,18 +17,17 @@
 
 /**
  * struct history - An structure for each command readed
- *
- * @id_h: error code
- * @comms: Commands
- * @prev: Previous element
+ * @str: string
+ * @counter: number of imputs
  * @next: Next element
  */
 
 typedef struct history
 {
 	char *str;
-    unsigned int len;
-    struct history *next;
+	int counter;
+	struct history *next;
+
 } history_t;
 
 /**fixing**/
@@ -40,6 +39,9 @@ typedef struct history
   * @status: to handle exit status
   * @argv: gets arguments at opening of shell
   * @counter: counts commands entered
+  * @env: has enviroment
+  * @commands: have commands.
+  * @history: structure
  */
 typedef struct variables
 {
@@ -51,6 +53,7 @@ typedef struct variables
 	char **env;
 	char **commands;
 	history_t *history;
+	history_t *head;
 } vars_t;
 
 /**
@@ -139,9 +142,10 @@ char *build_path(char *directory, char *command);
 void error_printing(char *av, int count, char *command);
 void exec_error(char *av, int count, char *tmp_command);
 
-/**history bild function**/
+/**history build function**/
 void new_history(vars_t *vars);
 void *add_nodeint(history_t **head, char *str);
 void free_listint(history_t *head);
 ssize_t _puts3(char *str);
+void print_message(char *str);
 #endif /* _SHELL_HOLBERTON_ */

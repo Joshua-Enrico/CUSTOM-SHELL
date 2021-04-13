@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * new_cd - Changes the current working directory to the parameter passed to cd.
+ * new_cd - Changes the current working directory .
  * if no parameter is passed it will change directory to HOME.
  * @vars: A string representing the input from the user.
  */

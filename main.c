@@ -15,9 +15,8 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 {
 	size_t len_buffer = 0;
 	unsigned int i;
-	
-	vars_t vars = {NULL, NULL, 0, NULL, 0, NULL, NULL, NULL};
-	history_t *head = NULL;
+
+	vars_t vars = {NULL, NULL, 0, NULL, 0, NULL, NULL, NULL, NULL};
 
 	vars.argv = argv;
 	vars.env = environment;
@@ -25,16 +24,15 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	signal(SIGINT, sig_handler);
 	/** necesitare una funcion para obtener el entorno de "enviroment esto"
 para el bulting "env" */
-	
-	
+
 	_puts("$ ");
-	
+
 	while (getline(&(vars.buffer), &len_buffer, stdin) != -1)
 	{
 		vars.counter++;
-		
-		add_nodeint(&head, vars.buffer);
-		vars.history = head;
+
+		add_nodeint(&vars.head, vars.buffer);
+		vars.history = vars.head;
 
 		vars.commands = tokenizer(vars.buffer, ";");
 
@@ -50,6 +48,7 @@ para el bulting "env" */
 		}
 		free(vars.buffer);
 		free(vars.commands);
+		
 		_puts("$ ");
 		vars.buffer = NULL;
 	}

@@ -14,9 +14,9 @@ void (*check_for_builtins(vars_t *vars))(vars_t *vars)
 		{"setenv", new_setenv},
 		{"unsetenv", new_unsetenv},
 		{"help", new_help},
-		{"cd",new_cd},
-		{"history",new_history},
-		
+		{"cd", new_cd},
+		{"history", new_history},
+
 		{NULL, NULL}};
 
 	for (i = 0; check[i].f != NULL; i++)
@@ -53,16 +53,16 @@ void new_exit(vars_t *vars)
 			vars->status = 2;
 			/*imprimira un mensaje de error */
 			prints_error_msg(vars, ": Illegal number: ");
-			_puts_error(vars->array_tokens[1]);
-			_puts_error("\n");
+			print_message(vars->array_tokens[1]);
+			print_message("\n");
 			return;
 		}
 		vars->status = status;
 	}
 	free(vars->commands);
 	free(vars->array_tokens);
+	free_listint(vars->head);
 	free(vars->buffer);
-	
 	exit(vars->status);
 }
 
@@ -119,10 +119,18 @@ void new_setenv(vars_t *vars)
 		}
 	}
 }
+
+/**
+ * new_unsetenv - remove an environment variable
+ * @vars: pointer to a struct of variables
+ *
+ * Return: void
+ */
 void new_unsetenv(vars_t *vars)
 {
 	char **key, **newenv;
 	unsigned int i, j;
+
 	if (vars->array_tokens[1] == NULL)
 	{
 		prints_error_msg(vars, ": Incorrect number of arguments\n");

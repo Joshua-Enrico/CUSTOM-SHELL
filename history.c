@@ -73,19 +73,35 @@ void free_listint(history_t *head)
 void new_history(vars_t *vars)
 {
 	history_t *tmp = vars->history;
-	int i;
+	history_t *invert = NULL;
+	int i = 0, z = 1;
+
+	unsigned int counter = 0;
+	char *count;
+
 	while (tmp)
 	{
+		add_nodeint(&invert, tmp->str);
 		tmp = tmp->next;
 		i++;
 	}
-	tmp = vars->history;
-	while(tmp)
+	
+	while (z < i)
 	{
-		_puts3(tmp->str);
+		counter++;
+		count = integer_converter(counter);
+		print_message(count);
+		print_message("     ");
+		_puts3(invert->str);
 
-		tmp = tmp->next;
+		invert = invert->next;
+		z++;
+		free(count);
 	}
+	
+	free_listint(tmp);
+	free_listint(invert);
+	
 }
 
 ssize_t _puts3(char *str)
@@ -94,7 +110,6 @@ ssize_t _puts3(char *str)
 	for (i = 0; str[i]; i++)
 		;
 
-	
 	len = write(1, str, i);
 	if (len != i)
 	{
@@ -102,4 +117,18 @@ ssize_t _puts3(char *str)
 		return (-1);
 	}
 	return (len);
+}
+
+void print_message(char *str)
+{
+	long num, len;
+
+	num = _strlen(str);
+	len = write(STDOUT_FILENO, str, num);
+	if (len != num)
+
+	{
+		perror("fatal error");
+		exit(1);
+	}
 }
