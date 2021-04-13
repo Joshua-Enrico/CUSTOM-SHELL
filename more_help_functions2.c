@@ -20,13 +20,17 @@ void new_help_alias(vars_t *vars)
 		s = malloc(300);
 		if (s == NULL)
 		{
+			_puts_error("Fatal Error");
+			return;
 		}
 		while ((r = read(fd, s, 300)) > 0)
 		{
 			r = write(1, s, r);
-			_puts_error("\n");
+			print_message("\n");
 			if (r == -1)
 			{
+				_puts_error("Fatal Error");
+			return;
 			}
 		}
 		free(s);

@@ -79,7 +79,15 @@ void new_history(vars_t *vars)
 
 	unsigned int counter = 0;
 	char *count;
-
+	if (vars->array_tokens[1] != NULL)
+	{
+		prints_error_msg(vars, ": Command not found: ");
+		print_message(vars->array_tokens[1]);
+		print_message("\n");
+		return;
+	}
+	else
+	{
 	while (tmp)
 	{
 		
@@ -105,6 +113,7 @@ void new_history(vars_t *vars)
 	free_listint(tmp2);
 	free(tmp2);
 	return;
+	}
 }
 
 ssize_t _puts3(char *str)

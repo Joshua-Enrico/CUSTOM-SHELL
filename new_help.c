@@ -18,13 +18,17 @@ void new_help(vars_t *vars)
 		s = malloc(300);
 		if (s == NULL)
 		{
+			_puts_error("Fatal Error");
+			return;
 		}
 		while ((r = read(fd, s, 300)) > 0)
 		{
 			r = write(1, s, r);
-			_puts_error("\n");
+			print_message("\n");
 			if (r == -1)
 			{
+				_puts_error("Fatal Error");
+			return;
 			}
 		}
 		free(s);
@@ -40,13 +44,17 @@ void new_help(vars_t *vars)
 		s = malloc(300);
 		if (s == NULL)
 		{
+			_puts_error("Fatal Error");
+			return;
 		}
 		while ((r = read(fd, s, 300)) > 0)
 		{
 			r = write(1, s, r);
-			_puts_error("\n");
+			print_message("\n");
 			if (r == -1)
 			{
+				_puts_error("Fatal Error");
+			return;
 			}
 		}
 		free(s);
@@ -75,13 +83,17 @@ void new_help_exit(vars_t *vars)
 		s = malloc(300);
 		if (s == NULL)
 		{
+			_puts_error("Fatal Error");
+			return;
 		}
 		while ((r = read(fd, s, 300)) > 0)
 		{
 			r = write(1, s, r);
-			_puts_error("\n");
+			print_message("\n");
 			if (r == -1)
 			{
+				_puts_error("Fatal Error");
+				return;
 			}
 		}
 		free(s);
@@ -110,13 +122,17 @@ void new_help_cd(vars_t *vars)
 		s = malloc(300);
 		if (s == NULL)
 		{
+			_puts_error("Fatal Error");
+			return;
 		}
 		while ((r = read(fd, s, 300)) > 0)
 		{
 			r = write(1, s, r);
-			_puts_error("\n");
+			print_message("\n");
 			if (r == -1)
 			{
+				_puts_error("Fatal Error");
+			return;
 			}
 		}
 		free(s);
@@ -145,13 +161,17 @@ void new_help_env(vars_t *vars)
 		s = malloc(300);
 		if (s == NULL)
 		{
+			_puts_error("Fatal Error");
+			return;
 		}
 		while ((r = read(fd, s, 300)) > 0)
 		{
 			r = write(1, s, r);
-			_puts_error("\n");
+			print_message("\n");
 			if (r == -1)
 			{
+				_puts_error("Fatal Error");
+			return;
 			}
 		}
 		free(s);
