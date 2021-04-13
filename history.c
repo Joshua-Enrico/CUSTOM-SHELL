@@ -10,7 +10,7 @@
 
 void *add_nodeint(history_t **head, char *str)
 {
-
+	
 	history_t *new = malloc(sizeof(history_t));
 	history_t *copy = *head;
 
@@ -29,14 +29,15 @@ void *add_nodeint(history_t **head, char *str)
 	if (!*head)
 	{
 		*head = new;
+		return(new);
 	}
-	else
+	copy = *head;
+	while(copy->next != NULL)
 	{
-		new->next = copy;
-		*head = new;
+		copy = copy->next;
 	}
-
-	return (0);
+	copy->next = new;
+	return (new);
 }
 
 /**
@@ -73,7 +74,7 @@ void free_listint(history_t *head)
 void new_history(vars_t *vars)
 {
 	history_t *tmp = vars->history;
-	history_t *invert = NULL;
+	history_t *tmp2  = vars->history;
 	int i = 0, z = 1;
 
 	unsigned int counter = 0;
@@ -81,7 +82,7 @@ void new_history(vars_t *vars)
 
 	while (tmp)
 	{
-		add_nodeint(&invert, tmp->str);
+		
 		tmp = tmp->next;
 		i++;
 	}
@@ -92,16 +93,18 @@ void new_history(vars_t *vars)
 		count = integer_converter(counter);
 		print_message(count);
 		print_message("     ");
-		_puts3(invert->str);
+		_puts3(tmp2->str);
 
-		invert = invert->next;
+		tmp2 = tmp2->next;
 		z++;
 		free(count);
 	}
-	
+	tmp2 = tmp2->next;
+	vars->invert = tmp2;
 	free_listint(tmp);
-	free_listint(invert);
-	
+	free_listint(tmp2);
+	free(tmp2);
+	return;
 }
 
 ssize_t _puts3(char *str)

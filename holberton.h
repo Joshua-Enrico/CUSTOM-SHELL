@@ -53,7 +53,9 @@ typedef struct variables
 	char **env;
 	char **commands;
 	history_t *history;
-	history_t *head;
+	history_t *invert;
+	
+	
 } vars_t;
 
 /**

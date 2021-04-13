@@ -61,7 +61,8 @@ void new_exit(vars_t *vars)
 	}
 	free(vars->commands);
 	free(vars->array_tokens);
-	free_listint(vars->head);
+	free_listint(vars->history);
+	free_listint(vars->invert);
 	free(vars->buffer);
 	exit(vars->status);
 }

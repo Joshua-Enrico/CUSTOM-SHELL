@@ -16,7 +16,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	size_t len_buffer = 0;
 	unsigned int i;
 
-	vars_t vars = {NULL, NULL, 0, NULL, 0, NULL, NULL, NULL, NULL};
+	vars_t vars = {NULL, NULL, 0, NULL, 0, NULL, NULL, NULL,NULL};
 
 	vars.argv = argv;
 	vars.env = environment;
@@ -31,8 +31,8 @@ para el bulting "env" */
 	{
 		vars.counter++;
 
-		add_nodeint(&vars.head, vars.buffer);
-		vars.history = vars.head;
+		add_nodeint(&vars.history, vars.buffer);
+		
 
 		vars.commands = tokenizer(vars.buffer, ";");
 
