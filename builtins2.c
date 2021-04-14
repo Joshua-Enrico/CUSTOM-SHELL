@@ -1,4 +1,7 @@
 #include "holberton.h"
+#define TINY vars->array_tokens
+#define ST dir.st_mode
+
 /**
  * new_cd - Changes the c.working directory to the parameter passed to cd.
  * if no parameter is passed it will change directory to HOME.
@@ -6,93 +9,43 @@
  */
 void new_cd(vars_t *vars)
 {
-	char **dir_info;
-	char *oldpwd = NULL, *pwd = NULL, *new_line = "\n";
-	int index;
+	char **dir_info, *oldpwd = NULL, *pwd = NULL;
 	struct stat dir;
 
 	oldpwd = getcwd(oldpwd, 0);
 	if (oldpwd == NULL)
+		simple_error();
+	if (TINY[1])
 	{
-		perror("Fatal Error");
-		exit(100);
-	}
-
-	if (vars->array_tokens[1])
-	{
-		if (*(vars->array_tokens[1]) == '-' ||
-		    (_strcmpr(vars->array_tokens[1], "--") == 0))
+		if (*(TINY[1]) == '-' || (_strcmpr(TINY[1], "--") == 0))
 		{
-			if ((vars->array_tokens[1][1] == '-' &&
-			     vars->array_tokens[1][2] == '\0') ||
-			    vars->array_tokens[1][1] == '\0')
-			{
-				index = find_env_index(*vars, "OLDPWD");
-				if (index < 0)
-					return;
-				chdir((vars->env[index]) + 7);
-			}
+			if ((TINY[1][1] == '-' && TINY[1][2] == '\0') || TINY[1][1] == '\0')
+				chdir_to_env(vars, "OLDPWD");
 			else
-			{
-				free(oldpwd);
-				print_str("-bash: cd: ", 1);
-				print_str(vars->array_tokens[1], 1);
-				print_str(": invalid option", 0);
-				print_str("cd: usage: cd [-] [--]", 0);
-				return;
-			}
-		}
-		else
+				print_cd_1(vars);
+		} else
 		{
-			if (stat(vars->array_tokens[1], &dir) == 0 &&
-		    S_ISDIR(dir.st_mode) && ((dir.st_mode & S_IXUSR) != 0))
-				chdir(vars->array_tokens[1]);
+			if (stat(TINY[1], &dir) == 0 && S_ISDIR(ST) && ((ST & S_IXUSR) != 0))
+				chdir(TINY[1]);
 			else
-			{
-				free(oldpwd);
-				print_str("-bash: cd: ", 1);
-				print_str(vars->array_tokens[1], 1);
-				print_str(": Not a directory", 0);
-				return;
-			}
+				print_cd_2(vars);
 		}
-	}
-	else
-	{
-		index = find_env_index(*vars, "HOME");
-		if (index < 0)
-			return;
-		chdir((vars->env[index]) + 5);
-	}
-
+	} else
+		chdir_to_env(vars, "HOME");
 	pwd = getcwd(pwd, 0);
 	if (!pwd)
-	{
-		perror("Fatal Error");
-		exit(100);
-	}
-
+		simple_error();
 	dir_info = malloc(sizeof(char *) * 2);
 	if (!dir_info)
-	{
-		perror("Fatal Error");
-		exit(100);
-	}
-
+		simple_error();
 	dir_info[0] = "OLDPWD";
 	dir_info[1] = oldpwd;
 	setenv_cd(dir_info, vars);
-
 	dir_info[0] = "PWD";
 	dir_info[1] = pwd;
 	setenv_cd(dir_info, vars);
-
-	if (vars->array_tokens[1] && vars->array_tokens[1][0] == '-' &&
-				       vars->array_tokens[1][1] != '-')
-	{
-		write(STDOUT_FILENO, pwd, _strlen(pwd));
-		write(STDOUT_FILENO, new_line, 1);
-	}
+	if (TINY[1] && TINY[1][0] == '-' && TINY[1][1] == '\0')
+		print_str(pwd, 0);
 	free(oldpwd);
 	free(pwd);
 	free(dir_info);
@@ -101,6 +54,7 @@ void new_cd(vars_t *vars)
 /**
  * setenv_cd - create a new environment variable, or edit an existing variable
  * @vars: pointer to struct of variables
+ * @args: arguments to pass.
  *
  * Return: void
  */

@@ -132,6 +132,7 @@ void add_key(vars_t *vars);
 char *add_value(char *key, char *value);
 char **find_key(char **env, char *key);
 void setenv_cd(char **args, vars_t *vars);
+void chdir_to_env(vars_t *vars, char *str);
 
 /** ask the path **/
 void fork_child(vars_t vars);
@@ -144,6 +145,9 @@ char *build_path(char *directory, char *command);
 /** More handle error messages**/
 void error_printing(char *av, int count, char *command);
 void exec_error(char *av, int count, char *tmp_command);
+void simple_error(void);
+void print_cd_1(vars_t *vars);
+void print_cd_2(vars_t *vars);
 
 /**history build function**/
 void new_history(vars_t *vars);

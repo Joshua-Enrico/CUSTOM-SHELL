@@ -49,3 +49,13 @@ void exec_error(char *av, int count, char *tmp_command)
 	perror("");
 	exit(1);
 }
+
+/**
+ * simple_error - Prints and exec simple error.
+ * Return: always void.
+ */
+void simple_error(void)
+{
+	perror("Fatal Error");
+	exit(100);
+}
