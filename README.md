@@ -2,6 +2,7 @@
 ## Table of Contents
 * [Description](#description)
 * [File Structure](#file-structure)
+* [File Structure](#Directories)
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Usage](#usage)
@@ -19,12 +20,28 @@ Standard functions and system calls employed in simple_shell include:
 ## File Structure
 * [holberton.h](holberton.h) - program header file
 
+* [.simple_shell_history](.simple_shell_history) - File where history's historial must be saved
+
 * [builtins.c](builtins.c) - major builtin functions
 	* `check_for_builtins` - checks if the command is a builtin
 	* `new_exit` - exits the shell with the option of a specified status
 	* `_env` - prints the current shell's environment variables to the standard output
 	* `new_setenv` -  create a new environment variable, or edit an existing variable
 	* `new_unsetenv` - removes an environment variable
+
+* [builtins2.c](builtins2.c) - more builtin functions
+	* `_new_cd` - Changes the current working directory .
+
+* [enviroment](enviroment) - more builtin functions
+	* `make_enviroment` - make the shell environment from the environment.
+	* `free_env` - free the shell's environment
+
+* [history.c](history.c) - history builting and funcions related.
+	* `add_nodeint` - Add node in the beginning
+	* `free_listint` - free pointers related with malloc
+	* `new_history` - Print the list of a single list
+	* `_puts3` - writes a string to standard output
+	* `print_message` - print a string to standart output
 
 * [add_functions.c](add_functions.c) - helpers functions for fork_child function
 	* `_strcmp` - compares two strings
@@ -48,8 +65,7 @@ Standard functions and system calls employed in simple_shell include:
 * [new_strtok.c](new_strtok.c) - custom strtok and helper functions
 	* `check_match` - checks if a character matches any in a string
 	* `new_strtok` - a custom strtok for the shell
-	* `build_path` - Combines two strings one representing the path directory and
-	*	 another representing the command file.
+	* `build_path` - Combines two strings one representing the path directory and another representing the command file.
 
 * [fork_child.c](fork_child.c) - functions related to executing commands
 	* `fork_child` - Creates a child in  order to execute another program.
@@ -61,7 +77,7 @@ Standard functions and system calls employed in simple_shell include:
 	* `search_directories` - Looks through directories stored in path_tokens
 	*  for a specific file aka command.
 
-* [main.c](main.c) - essential functions to the shell
+* [simple_shell.c](simple_shell.c) - essential functions to the shell
 	* `main` - the main function of the program
 	* `sig_handler` - handles SIGINT
 
@@ -80,6 +96,7 @@ Standard functions and system calls employed in simple_shell include:
 
 * [new_help.c](new_help.c) - Help builting and functions
 	* `new_help` - help builtin command
+	* `new_help_help` -  help builtin command help
 	* `new_help_exit` - help builtin command exit
 	* `new_help_cd` - help builtin command cd
 	* `new_help_env` -  help builtin command env
@@ -100,6 +117,12 @@ Standard functions and system calls employed in simple_shell include:
 	* `_write_char` - Writes a character to stdout
 	* `print_number` - Prints an unsigned number
 
+* [man_1_simple_shell](man_1_simple_shell) -  Shell Man page
+
+## Directories
+* [helpfiles](helpfiles) - arguments files for help building.
+* [Mishell](Mishell) - testing shell apart.
+* [shell2](shell2) - backup to test shell, outdated version.
 
 ## Requirements
 
@@ -140,7 +163,7 @@ The simple_shell is designed to execute commands in a similar manner to sh, howe
 - [x] unsetenv
 - [x] cd
 - [x] help
-- [ ] history
+- [x] history
 
 ## Example of Use
 Run the executable in your terminal after compiling:
