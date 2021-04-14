@@ -131,6 +131,7 @@ void new_setenv(vars_t *vars);
 void add_key(vars_t *vars);
 char *add_value(char *key, char *value);
 char **find_key(char **env, char *key);
+void setenv_cd(char **args, vars_t *vars);
 
 /** ask the path **/
 void fork_child(vars_t vars);
