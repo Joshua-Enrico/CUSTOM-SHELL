@@ -37,20 +37,20 @@ char *add_value(char *key, char *value)
 
 char **find_key(char **env, char *key)
 {
-    unsigned int i, j, len;
+	unsigned int i, j, len;
 
-    len = _strlen(key);
-    for (i = 0; env[i] != NULL; i++)
-    {
-        for (j = 0; j < len; j++)
-        {
-            if (key[j] != env[i][j])
-                break;
-        }
-        if (j == len && env[i][j] == '=')
-            return (&env[i]);
-    }
-    return (NULL);
+	len = _strlen(key);
+	for (i = 0; env[i] != NULL; i++)
+	{
+		for (j = 0; j < len; j++)
+		{
+			if (key[j] != env[i][j])
+				break;
+		}
+		if (j == len && env[i][j] == '=')
+			return (&env[i]);
+	}
+	return (NULL);
 }
 
 /**

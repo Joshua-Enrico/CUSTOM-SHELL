@@ -100,6 +100,7 @@ char *_strcat(char *strc1, char *strc2)
 ssize_t _puts(char *str)
 {
 	ssize_t i, len;
+
 	for (i = 0; str[i]; i++)
 		;
 	len = write(1, str, i);
@@ -113,7 +114,7 @@ ssize_t _puts(char *str)
 
 /*** MEASURE THE LENGHT OF A STRING ***/
 /**
- * str_len - Calculates the lenght of a string.
+ * _strlen - Calculates the lenght of a string.
  * @str: String that needs length to be found.
  * Return: Upon success returns the length of a string. otherwise 0.
  */

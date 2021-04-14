@@ -39,9 +39,9 @@ char **tokenizer(char *buffer, char *delimiter)
 
 /**
  * tokenize - tokenizes a buffer with a delimiter just use for for_child
- * @buffer: buffer to tokenize
+ * @line: buffer to tokenize
  * @delimiter: delimiter to tokenize along
- *
+ * @token_count: token count, size.
  * Return: pointer to an array of pointers to the tokens
  */
 char **tokenize(int token_count, char *line, const char *delimiter)
@@ -58,7 +58,7 @@ char **tokenize(int token_count, char *line, const char *delimiter)
 	token = new_strtok(line_cp, delimiter);
 	for (i = 0; token != NULL; i++)
 	{
-		buffer [i] = _strdup(token);
+		buffer[i] = _strdup(token);
 		token = new_strtok(NULL, delimiter);
 	}
 	buffer[i] = NULL;
@@ -68,10 +68,11 @@ char **tokenize(int token_count, char *line, const char *delimiter)
 
 /**
  * token_interface - token interface
- * 
- * 
+ * @line: line get to be tokenized
+ * @delimiter: eny delimiter lie ; % " ", etc.
+ * @token_count: token counter.
+ * Return: tokens
  **/
-
 char **token_interface(char *line, const char *delimiter, int token_count)
 {
 	vars_t vars;
@@ -89,14 +90,14 @@ char **token_interface(char *line, const char *delimiter, int token_count)
 		return (NULL);
 	}
 
-	return(vars.array_tokens);
+	return (vars.array_tokens);
 }
 
 /**
  * count_token - token's count
- * 
- * 
- * 
+ * @line: string.
+ * @delimiter: delimiter
+ * Return: token's count
  **/
 int count_token(char *line, const char *delimiter)
 {

@@ -1,5 +1,11 @@
 #include "holberton.h"
 
+/**
+ * make_enviroment - make the shell environment from the environment.
+ * @env: environment passed to main
+ *
+ * Return: pointer to the new environment
+ */
 char **make_enviroment(char **env)
 {
 char **newenviroment = NULL;

@@ -10,6 +10,7 @@ void new_help(vars_t *vars)
 	char *file;
 	int fd, r;
 	char *s;
+
 	if (vars->array_tokens[1] == NULL)
 	{
 		file = "/home/shell_test/shelltestenviroment/helpfiles/help";
@@ -28,15 +29,29 @@ void new_help(vars_t *vars)
 			if (r == -1)
 			{
 				_puts_error("Fatal Error");
-			return;
+				return;
 			}
 		}
 		free(s);
 		fd = close(fd);
 		return;
 	}
+	else
+		new_help_help(vars);
+}
 
-	else if (_strcmpr(vars->array_tokens[1], "help") == 0)
+/**
+ * new_help_help - help builtin command
+ * @vars: if command matches a builtin name, text file is sent to stdout
+ * Return: 0 if sucess
+ */
+void new_help_help(vars_t *vars)
+{
+	char *file;
+	int fd, r;
+	char *s;
+
+	if (_strcmpr(vars->array_tokens[1], "help") == 0)
 	{
 		file = "/home/shell_test/shelltestenviroment/helpfiles/help_help";
 		fd = open(file, O_RDWR);
@@ -54,7 +69,7 @@ void new_help(vars_t *vars)
 			if (r == -1)
 			{
 				_puts_error("Fatal Error");
-			return;
+				return;
 			}
 		}
 		free(s);
@@ -132,7 +147,7 @@ void new_help_cd(vars_t *vars)
 			if (r == -1)
 			{
 				_puts_error("Fatal Error");
-			return;
+				return;
 			}
 		}
 		free(s);
@@ -171,7 +186,7 @@ void new_help_env(vars_t *vars)
 			if (r == -1)
 			{
 				_puts_error("Fatal Error");
-			return;
+				return;
 			}
 		}
 		free(s);

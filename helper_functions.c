@@ -22,7 +22,7 @@ void _puts_error(char *str)
 
 /**** imprime mensage de error con ciertor parametros ****/
 /**
- * print_error_msg - prints error messages to standard error
+ * prints_error_msg - prints error messages to standard error
  * @vars: pointer to struct of variables
  * @msg: message to print
  *
@@ -32,11 +32,11 @@ void _puts_error(char *str)
 void prints_error_msg(vars_t *vars, char *msg)
 {
 	char *count;
+
 	_puts_error(vars->argv[0]);
 	_puts_error(": ");
 
-	/*aqui estoy creando una funcion para poder usar
-	funcion "_put_error" ya que count es un entero*/
+	/*aqui croe una funcion para convertir un entero a string*/
 	count = integer_converter(vars->counter);
 	_puts_error(count);
 	free(count);

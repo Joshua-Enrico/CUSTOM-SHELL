@@ -59,5 +59,4 @@ void new_help_else(vars_t *vars)
 	_puts_error("'.");
 
 	_puts_error("\n");
-	return;
 }

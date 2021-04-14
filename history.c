@@ -10,7 +10,7 @@
 
 void *add_nodeint(history_t **head, char *str)
 {
-	
+
 	history_t *new = malloc(sizeof(history_t));
 	history_t *copy = *head;
 
@@ -29,10 +29,10 @@ void *add_nodeint(history_t **head, char *str)
 	if (!*head)
 	{
 		*head = new;
-		return(new);
+		return (new);
 	}
 	copy = *head;
-	while(copy->next != NULL)
+	while (copy->next != NULL)
 	{
 		copy = copy->next;
 	}
@@ -65,20 +65,19 @@ void free_listint(history_t *head)
 }
 
 /**
- * print_listint - Print the list of a single list
- * @h: The pointer of the list.
- *
+ * new_history - Print the list of a single list
+ * @vars: structure with variables.
  * Return: The number of elements in the list
  */
 
 void new_history(vars_t *vars)
 {
 	history_t *tmp = vars->history;
-	history_t *tmp2  = vars->history;
+	history_t *tmp2 = vars->history;
 	int i = 0, z = 1;
-
 	unsigned int counter = 0;
 	char *count;
+
 	if (vars->array_tokens[1] != NULL)
 	{
 		prints_error_msg(vars, ": Command not found: ");
@@ -88,37 +87,40 @@ void new_history(vars_t *vars)
 	}
 	else
 	{
-	while (tmp)
-	{
-		
-		tmp = tmp->next;
-		i++;
-	}
-	
-	while (z < i)
-	{
-		counter++;
-		count = integer_converter(counter);
-		print_message(count);
-		print_message("     ");
-		_puts3(tmp2->str);
-
+		while (tmp)
+		{
+			tmp = tmp->next;
+			i++;
+		}
+		while (z < i)
+		{
+			counter++;
+			count = integer_converter(counter);
+			print_message(count);
+			print_message("  ");
+			_puts3(tmp2->str);
+			tmp2 = tmp2->next;
+			z++;
+			free(count);
+		}
 		tmp2 = tmp2->next;
-		z++;
-		free(count);
-	}
-	tmp2 = tmp2->next;
-	vars->invert = tmp2;
-	free_listint(tmp);
-	free_listint(tmp2);
-	free(tmp2);
-	return;
+		vars->invert = tmp2;
+		free_listint(tmp);
+		free_listint(tmp2);
+		return;
 	}
 }
-
+/*** WRITES STRING TO STDOUT ***/
+/**
+ * _puts3 - writes a string to standard output
+ * @str: string to write
+ *
+ * Return: number of chars printed or -1 on failure
+ */
 ssize_t _puts3(char *str)
 {
 	ssize_t i, len;
+
 	for (i = 0; str[i]; i++)
 		;
 
@@ -130,7 +132,11 @@ ssize_t _puts3(char *str)
 	}
 	return (len);
 }
-
+/**
+ *print_message - print a string to standart output
+ * @str: string to print.
+ * Return: void
+ */
 void print_message(char *str)
 {
 	long num, len;

@@ -13,8 +13,6 @@
 #include <signal.h>
 #include <fcntl.h>
 
-
-
 /**
  * struct history - An structure for each command readed
  * @str: string
@@ -42,6 +40,7 @@ typedef struct history
   * @env: has enviroment
   * @commands: have commands.
   * @history: structure
+  * @invert: structure
  */
 typedef struct variables
 {
@@ -54,8 +53,7 @@ typedef struct variables
 	char **commands;
 	history_t *history;
 	history_t *invert;
-	
-	
+
 } vars_t;
 
 /**
@@ -117,6 +115,7 @@ void free_env(char **env);
 
 /**New_help functions**/
 void new_help_exit(vars_t *vars);
+void new_help_help(vars_t *vars);
 void new_help_cd(vars_t *vars);
 void new_help_env(vars_t *vars);
 void new_help_history(vars_t *vars);
@@ -152,4 +151,6 @@ void free_listint(history_t *head);
 ssize_t _puts3(char *str);
 void print_message(char *str);
 
+
+unsigned int sig_flag;
 #endif /* _SHELL_HOLBERTON_ */
