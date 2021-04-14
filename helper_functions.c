@@ -16,7 +16,7 @@ void _puts_error(char *str)
 
 	{
 		perror("fatal error");
-		exit(1);
+		exit(100);
 	}
 }
 

@@ -80,6 +80,11 @@ The following builtin commands are supported:
 - Change the current directory to DIR.  The default DIR is the value of the
 -   HOME shell variable
 
+.B history
+- History library is able to keep track of those lines, associate arbitrary data with each line,
+- and utilize information from previous lines in composing new ones.
+
+
 Example of builtin command:
 .IP
 .br
