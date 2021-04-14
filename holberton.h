@@ -113,6 +113,7 @@ int _atoi(char *str);
 /** functions de help env builting*/
 /*this to get enviroment*/
 char **make_enviroment(char **env);
+void free_env(char **env);
 
 /**New_help functions**/
 void new_help_exit(vars_t *vars);
@@ -150,4 +151,5 @@ void *add_nodeint(history_t **head, char *str);
 void free_listint(history_t *head);
 ssize_t _puts3(char *str);
 void print_message(char *str);
+
 #endif /* _SHELL_HOLBERTON_ */

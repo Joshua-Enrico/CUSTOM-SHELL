@@ -4,7 +4,7 @@ char **make_enviroment(char **env)
 {
 char **newenviroment = NULL;
 
-unsigned long i;
+size_t i;
 
 	for (i = 0; env[i] != NULL; i++)
 		;
@@ -18,4 +18,19 @@ unsigned long i;
 		newenviroment[i] = _strdup(env[i]);
 	newenviroment[i] = NULL;
 	return (newenviroment);
+}
+
+/**
+ * free_env - free the shell's environment
+ * @env: shell's environment
+ *
+ * Return: void
+ */
+void free_env(char **env)
+{
+	unsigned int i;
+
+	for (i = 0; env[i] != NULL; i++)
+		free(env[i]);
+	free(env);
 }

@@ -63,6 +63,7 @@ void new_exit(vars_t *vars)
 	free(vars->array_tokens);
 	free_listint(vars->history);
 	free_listint(vars->invert);
+	free_env(vars->env);
 	free(vars->buffer);
 	exit(vars->status);
 }
@@ -116,9 +117,13 @@ void new_setenv(vars_t *vars)
 			free(vars->buffer);
 			free(vars->array_tokens);
 			free(vars->commands);
+			free_env(vars->env);
 			exit(127);
 		}
+		free(*key);
+		*key = var;
 	}
+	vars->status = 0;
 }
 
 /**
