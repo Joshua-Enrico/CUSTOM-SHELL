@@ -27,6 +27,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 {
 	size_t len_buffer = 0;
 	unsigned int i;
+	unsigned int is_pipe = 0;
 
 	vars_t vars = {NULL, NULL, 0, NULL, 0, NULL, NULL, NULL, NULL};
 
@@ -34,7 +35,12 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	vars.env = make_enviroment(environment);
 
 	signal(SIGINT, sig_handler);
-	_puts("$ ");
+
+	if (!isatty(STDIN_FILENO))
+		is_pipe = 1;
+	if (is_pipe == 0)
+		_puts("$ ");
+	sig_flag = 0;
 
 	while (getline(&(vars.buffer), &len_buffer, stdin) != -1)
 	{
@@ -56,10 +62,11 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 		}
 		free(vars.buffer);
 		free(vars.commands);
-
-		_puts("$ ");
+		if (is_pipe == 0)
+			_puts("$ ");
 		vars.buffer = NULL;
 	}
-
+	free_env(vars.env);
+	free(vars.buffer);
 	exit(vars.status);
 }
