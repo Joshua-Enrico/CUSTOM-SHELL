@@ -59,7 +59,7 @@ void read_textfile(vars_t *vars)
 	int x = 0;
 	if (vars->array_tokens[1] == NULL)
 	{
-		file = ".simple_shell_history";
+		file = "/root/.simple_shell_history";
 		fd = open(file, O_RDWR);
 
 		s = malloc(4096);
@@ -126,7 +126,7 @@ int append_text_to_file(vars_t *vars)
 	long _write;
 	char *compare = vars->buffer;
 
-	const char *filename = ".simple_shell_history";
+	const char *filename = "/root/.simple_shell_history";
 
 	if (_strcmpr(vars->buffer, "\n") == 0)
 	{
@@ -143,7 +143,7 @@ int append_text_to_file(vars_t *vars)
 		return (-1);
 	}
 
-	ft = open(filename, O_RDWR | O_APPEND);
+	ft = open(filename, O_RDWR | O_CREAT |  O_APPEND);
 
 	if (ft == -1)
 	{
