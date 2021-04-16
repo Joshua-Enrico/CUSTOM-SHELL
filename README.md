@@ -1,4 +1,4 @@
-# SIMPLE SHELL PROYECT
+# SIMPLE SHELL PROJECT
 
 ## Table of Contents
 * [Description](#description)
