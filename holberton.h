@@ -51,8 +51,8 @@ typedef struct variables
 	int counter;
 	char **env;
 	char **commands;
-	history_t *history;
-	history_t *invert;
+	char *history_string;
+	int history_counter;
 
 } vars_t;
 
@@ -156,6 +156,14 @@ void free_listint(history_t *head);
 ssize_t _puts3(char *str);
 void print_message(char *str);
 
+int append_text_to_file(vars_t *vars);
+void read_textfile(vars_t *vars);
+unsigned int check_if_match2(char c);
+int _strcmpr2(char *strcmp1);
+void _putchar(char c);
+char *integer_converter2(unsigned int count);
 
 unsigned int sig_flag;
+
+void print_message1(char *str);
 #endif /* _SHELL_HOLBERTON_ */

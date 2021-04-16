@@ -15,7 +15,7 @@ void (*check_for_builtins(vars_t *vars))(vars_t *vars)
 		{"unsetenv", new_unsetenv},
 		{"help", new_help},
 		{"cd", new_cd},
-		{"history", new_history},
+		{"history", read_textfile},
 
 		{NULL, NULL}};
 
@@ -61,8 +61,6 @@ void new_exit(vars_t *vars)
 	}
 	free(vars->commands);
 	free(vars->array_tokens);
-	free_listint(vars->history);
-	free_listint(vars->invert);
 	free_env(vars->env);
 	free(vars->buffer);
 	exit(vars->status);

@@ -29,7 +29,7 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	unsigned int i;
 	unsigned int is_pipe = 0;
 
-	vars_t vars = {NULL, NULL, 0, NULL, 0, NULL, NULL, NULL, NULL};
+	vars_t vars = {NULL, NULL, 0, NULL, 0, NULL, NULL, NULL, 0};
 
 	vars.argv = argv;
 	vars.env = make_enviroment(environment);
@@ -46,9 +46,9 @@ int main(int argc __attribute__((unused)), char **argv, char **environment)
 	{
 		vars.counter++;
 
-		add_nodeint(&vars.history, vars.buffer);
-
 		vars.commands = tokenizer(vars.buffer, ";");
+
+		append_text_to_file(&vars);
 
 		for (i = 0; vars.commands && vars.commands[i] != NULL; i++)
 		{
