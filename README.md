@@ -1,4 +1,4 @@
-# SIMPLE SHELL PROJECT
+# HOLBERTON PROJECT: simple_shell
 
 ## Table of Contents
 * [Description](#description)
